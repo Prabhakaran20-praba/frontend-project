@@ -1,0 +1,822 @@
+/* GENERAL STYLES */
+ body{
+      padding-top: 100px; /* space for top-bar + navbar */
+    }
+
+    .top-bar{
+      background:#cfdfd2;
+      font-size:14px;
+    }
+
+    .top-bar a{
+      margin-right:12px;
+      color:#333;
+      text-decoration:none;
+    }
+
+    .navbar{
+      background:#9fb532;
+    }
+
+    .navbar .nav-link{
+      font-weight:600;
+      margin:0 10px;
+      color:#333;
+    }
+
+    .navbar .nav-link:hover{
+      color:#0d6efd;
+    }
+  
+/* MENU (Desktop) */
+.menu {
+    display: flex;
+    gap: 25px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #0e0c0c;
+    font-size: 16px;
+}
+
+.menu a:hover {
+    color: #3e262b;
+}
+
+.badge-new {
+    background: #6b6a36;
+    color: #ede7e7;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 10px;
+}
+
+/* ICONS */
+.icons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.icons i {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* ---------- HAMBURGER TOGGLER (Mobile) ---------- */
+.toggler {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.wd1{
+    background-color: #333;
+    color: white;
+
+}
+
+.wd2{
+    
+     a{
+    color: #eee;
+}
+h5{
+
+}
+}
+
+.wd3{
+    justify-content: center;
+   
+    
+    img{
+        border-radius: 30px;
+    }
+    h6{
+        padding: 3%;
+        color: rgb(200, 242, 10);
+    }
+    a{
+        background-color: #eee;
+        padding: 1%;
+        color: #ff5656 !important;
+        border-radius: 30px;
+    }
+    a:hover{
+        background-color: #ff5656;
+        color: rgb(243, 162, 14);
+
+        text-decoration: none;
+    }
+}
+
+
+
+/*---header-top---*/
+
+ 
+
+
+.top-container {
+            display: flex;
+            align-items: center;
+             background: #74603388; 
+            
+            gap: 30px;
+        }
+
+        /* LEFT "All Departments" BOX */
+        .depart-box {
+            background: #296779;
+            padding: 15px ;
+            width: 220px;
+            border-radius: 10px;
+            color: #f0f1f1;
+            position: relative;
+        }
+
+        .depart-box h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .depart-box p {
+            margin: 0;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .depart-box i {
+            position: absolute;
+            right: 20px;
+            top: 22px;
+            font-size: 20px;
+        }
+
+        /* SEARCH BAR */
+        .search {
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            
+            justify-content: center;
+            width: 650px;
+            overflow: hidden;
+            padding-left: 20px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .search i {
+            font-size: 20px;
+            color: #555;
+            margin-right: 10px;
+        }
+
+        /* SEARCH BUTTON */
+        .search button {
+            background: #ff6e6e;
+            border: none;
+            padding: 12px 25px;
+            color: #fff;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+
+      
+ .carousel-item{
+    
+ }
+
+.carousel-caption{
+height: 400px;
+
+}
+
+.carousel-caption h2 {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.carousel-caption h4 {
+    font-size: 28px;
+    color: #222 !important;
+
+}
+
+.carousel-caption h2{
+    color:#222 !important
+}
+.carousel-caption button {
+    background: #ff4d4d;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+
+/*----BRAND----*/
+
+.brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+    padding:20px 0;
+
+   
+}
+
+.zero {
+  
+    opacity: .25;
+    transition: 0.3s;
+}
+
+.zero:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/*----Trending Products----*/
+  
+
+
+
+
+.small-product img {
+  height: 273px;
+  object-fit: cover;
+}
+
+.small-product {
+  transition: 0.3s;
+}
+
+.small-product:hover {
+  transform: translateY(-4px);
+}
+
+
+
+
+.Trending-products .card {
+  transition: transform 0.3s ease;
+}
+.Trending-products .card:hover {
+  transform: scale(1.03);
+}
+.Trending-products h6 {
+  margin-bottom: 6px;
+}
+
+
+/*---Featured Product---*/
+
+
+.card img{
+    height:500px;
+    object-fit: cover;
+}
+
+
+/*---Featured Product---*/
+
+
+
+.Featured-products.card{
+    transition: all transfrom 0.3s ease;
+}
+
+
+
+
+.Featured-products .card:hover{
+    transform: translateY(-6px);
+    transition: 1s;
+}
+
+
+
+
+
+
+.category-card{
+    background: #fff;
+    border: 1px solid  #eee;
+    padding: 20px;
+    border-radius:6px;
+    height:100%;
+    gap:15px;
+    transition:all 0.3 ease;
+} 
+
+.category-img{
+    width: 80px;
+    height: auto;
+
+}
+
+.category-card:hover{
+    box-shadow: 0 8px 20px rgba(104, 28, 28, 0.08);
+    transform: translateY(-6px);
+     transform: transfrom 0.3s ease;
+
+}
+
+
+.newsletter{
+    color: rgb(62, 112, 121);
+background-color:wheat;   
+
+}
+
+
+.newsletter-form .form-control{
+    border-radius: 6px 0 0 6px;
+    height: 50px;
+    border:none;
+}
+
+.newsletter-form .btn{
+    border-radius: 0 4px 4px 0;
+    height: 50px;
+
+}
+
+
+/*footer*/
+
+.footer{
+    background-color:rgb(231, 224, 224)
+}
+
+.footer h6{
+    color:#000;
+}
+
+.footer-links li{
+    margin-bottom:8px;
+}
+
+.footer-links a{
+    color:#6c757d;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-links a:hover{
+    color:#000;
+}
+
+
+
+/*footer-bottom*/
+
+.footer-bottom{
+    background-color: #fff;
+}
+
+.social-icons a {
+     color:#000;
+     font-size: 16px;
+     margin: 0 6px;
+
+}
+
+.social-icons a:hover{
+    color:#c33417;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*shop*/
+
+.c1{
+    width: 22px;
+    height:22px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+
+.size-box{
+    width: 40px;
+    height: 40px;
+    border:1px solid #ddd;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    cursor:pointer;
+
+}
+
+
+.size-box.active{
+    border-color:#dc3545;
+    color: #dc3545;
+    font-weight:bold;
+}
+
+
+.qty-box{
+    display: flex;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+
+
+
+
+
+
+.qty-box button {
+  border: none;
+  background: none;
+  width: 35px;
+}
+
+.qty-box span {
+  width: 35px;
+  text-align: center;
+}
+
+
+
+
+/*SIGN UP*/
+
+.signup{
+    background: #f8f9fa;
+    padding:60px 0;
+}
+
+.signup .box{
+    background: #fff;
+    padding:40px;
+    border-radius:12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.signup.title{
+    text-align:center;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.signup h6{
+    font-size:14px;
+    font-weight:600;
+    margin-top: 15px;
+    margin-bottom:6px;
+}
+
+.signup .form-control{
+    height:45px;
+    border-radius:8px;
+}
+
+.signup textarea.form-control{
+    height: auto;
+    resize: none;
+}
+
+.btn-signup{
+    width:100%;
+    margin-top:25px;
+    padding: 12px;
+    background: #000;
+    color:#fff;
+    border : none;
+    border-radius:8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-signup:hover{
+    baackground:#333;
+    transform: translatey(-2px);
+}
+
+
+/*My Account*/
+
+.my-account {
+  background: #f5f7fa;
+  padding: 70px 0;
+}
+
+.account-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.account-box h2 {
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.account-info p {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.account-actions {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.btn-account {
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  background: #000;
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.btn-account:hover {
+  background: #333;
+}
+
+.btn-account.logout {
+  background: #dc3545;
+}
+
+.btn-account.logout:hover {
+  background: #b02a37;
+}
+
+
+/*Order Tracking*/
+
+.order-tracking {
+  background: #f5f7fa;
+  padding: 70px 0;
+}
+
+.tracking-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.tracking-box h2 {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.order-tracking .form-control {
+  height: 45px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.btn-track {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-track:hover {
+  background: #333;
+}
+
+/* Order Status Steps */
+.order-status {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.step span {
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ddd;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  color: #555;
+}
+
+/* Completed & Active */
+.step.completed span {
+  background: #28a745;
+}
+
+.step.active span {
+  background: #000;
+}
+
+/* Line Between Steps */
+.step::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: #ddd;
+  z-index: -1;
+}
+
+.step:last-child::after {
+  display: none;
+}
+
+.step.completed::after {
+  background: #28a745;
+}
+
+
+
+/*product*/
+
+.container.a{
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width: 900px) {
+
+    .toggler {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        padding: 15px 40px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .menu a {
+        margin: 12px 0;
+        display: block;
+    }
+
+    .menu.show {
+        display: block;
+    }
+
+    .icons {
+        margin-left: auto;
+    }
+}

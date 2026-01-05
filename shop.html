@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Angrakha Suit Set</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom Theme Colors based on the image */
+        :root {
+            --theme-color: #8B575C; /* The brownish-maroon color */
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        /* Navbar Customization */
+        .fixed-top {
+            position: relative; /* Changed from fixed-top for clean display of a single page example */
+        }
+        .top-bar {
+            background-color: var(--light-bg);
+            border-bottom: 1px solid #eee;
+        }
+        .top-bar a, .top-right a {
+            color: #777;
+            text-decoration: none;
+            font-size: 0.75rem;
+            margin-right: 15px;
+        }
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .nav-link {
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+        
+        /* Thumbnail Gallery */
+        .thumb-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .thumb-img {
+            width: 100%;
+            cursor: pointer;
+            border: 1px solid transparent;
+            opacity: 0.7;
+            transition: 0.3s;
+        }
+        .thumb-img:hover, .thumb-img.active {
+            border-color: var(--theme-color);
+            opacity: 1;
+        }
+
+        /* Product Info */
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .price-section {
+            margin-bottom: 20px;
+        }
+        .current-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+        .discount-off {
+            color: #d9534f;
+            margin-left: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* Offer Banner */
+        .offer-banner {
+            background-color: #f4f4f4;
+            padding: 10px;
+            font-size: 0.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+        .offer-banner a {
+            color: #d9534f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Size Selector */
+        .size-btn {
+            border: 1px solid #ddd;
+            background: white;
+            color: #333;
+            width: 45px;
+            height: 40px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 0;
+            font-size: 0.85rem;
+        }
+        .size-btn:hover, .size-btn.active {
+            background-color: var(--theme-color); /* Highlight color changed to theme-color */
+            color: white;
+            border-color: var(--theme-color);
+        }
+        .size-btn.disabled-size {
+            background-color: #f4f4f4;
+            color: #aaa;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+        .size-chart-link {
+            font-size: 0.85rem;
+            text-decoration: underline;
+            color: #333;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* Action Buttons */
+        .btn-add-cart {
+            background-color: var(--theme-color);
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            width: 100%;
+            text-transform: uppercase;
+        }
+        .btn-add-cart:hover {
+            background-color: #6e4247;
+            color: white;
+        }
+        .btn-wishlist {
+            border: 1px solid #ddd;
+            border-radius: 0;
+            padding: 10px 15px;
+            color: #333;
+        }
+
+        /* Delivery Timeline */
+        .delivery-timeline {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            margin: 25px 0;
+            text-align: center;
+            position: relative;
+        }
+        .delivery-timeline::before {
+            content: '';
+            position: absolute;
+            top: 25%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: #eee;
+            z-index: -1;
+        }
+        .timeline-item i {
+            background: white;
+            padding: 0 5px;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Accordion Customization */
+        .accordion-item {
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+        .accordion-button {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding-left: 0;
+            background-color: transparent !important;
+            color: #333 !important;
+            box-shadow: none !important;
+        }
+        .accordion-body {
+            padding-left: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Specifications Grid */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .spec-item label {
+            font-size: 0.75rem;
+            color: #888;
+            display: block;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+        .spec-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="fixed-top">
+<div class="top-bar d-flex justify-content-between px-3 py-2">
+  <div class="top-left">
+    <a href="#">Blog</a>
+    <a href="#">Featured Products</a>
+    <a href="#">Wishlist</a>
+  </div>
+
+  <div class="top-right">
+    <a href="signup.html">Sign Up</a>
+    <a href="My Account.html">My Account</a>
+    <a href="Order Tracking.html">Order Tracking</a>
+    <a href="#">USD ▼</a>
+    <a href="#">English ▼</a>
+  </div>
+</div>
+
+
+<nav class="navbar navbar-expand-lg px-3">
+
+  <div class="logo fw-bold fs-3">.Store</div>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+    ☰
+  </button>
+
+  <div class="collapse navbar-collapse" id="mainMenu">
+
+    <ul class="navbar-nav mx-auto">
+
+      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="Woman.html">Woman</a></li>
+      <li class="nav-item"><a class="nav-link" href="men.html">Men</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="sport.html">Sports <span class="badge bg-danger">New</span></a>
+      </li>
+
+    </ul>
+
+    <div class="d-flex align-items-center gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
+        </svg>
+        <a href="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" id="cartIcon" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+            </svg>
+        </a>
+        <div id="cartSummary">
+            Total<br><span id="cartTotal">₹ 0.00</span> 
+            (<span id="cartCount">0</span>)
+        </div>
+    </div>
+
+  </div>
+
+</nav>
+
+</div>
+
+
+    <div class="container mt-5 pt-5 mb-5">
+        <div class="row">
+            
+            <div class="col-md-1 d-none d-md-block">
+                <div class="thumb-container">
+                    <img src="asset/woman/dress1/1.jpg" class="img-fluid thumb-img active" alt="Thumb 1">
+                    <img src="asset/woman/dress1/2.jpg" class="img-fluid thumb-img" alt="Thumb 2">
+                    <img src="asset/woman/dress1/3.jpg" class="img-fluid thumb-img" alt="Thumb 3">
+                    <img src="asset/woman/dress1/4.jpg" class="img-fluid thumb-img" alt="Thumb 4">
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-4">
+                <div class="text-center">
+                    <img src="asset/woman/dress1/1.jpg" class="img-fluid" alt="Red Angrakha Suit Set">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                
+                <h1 class="product-title">Red Angrakha Suit Set</h1>
+                
+                <div class="price-section">
+                    <span class="current-price" id="productPrice" data-price="2599.00">₹ 2,599.00</span>
+                    <span class="original-price">₹ 8,999.00</span>
+                    <span class="discount-off">71% off</span>
+                    <div class="text-muted small mt-1">Inclusive of all taxes</div>
+                </div>
+
+                <div class="offer-banner">
+                    EXTRA 10% OFF - BUY ANY 2 | <a href="#">EXPLORE</a>
+                    <br>
+                    <span class="text-muted" style="font-size: 10px;">LIMITED TIME DEAL | AUTOMATIC AT CHECKOUT</span>
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-uppercase small fw-bold" style="letter-spacing: 1px;">Size</span>
+                        <span class="size-chart-link"><i class="fa-solid fa-ruler-combined me-1"></i> SIZE CHART</span>
+                    </div>
+                    
+                    <div class="d-flex flex-wrap align-items-center" id="sizeSelector">
+                        <button class="btn size-btn" data-size="XS">XS</button>
+                        <button class="btn size-btn" data-size="S">S</button>
+                        <button class="btn size-btn active" data-size="M">M</button>
+                        <button class="btn size-btn" data-size="L">L</button>
+                        <button class="btn size-btn" data-size="XL">XL</button>
+                        <button class="btn size-btn disabled-size" data-size="XXL" disabled>XXL</button>
+                    </div>
+                </div>
+
+                <div class="row g-2 mb-4">
+                    <div class="col-2 col-md-2">
+                        <button class="btn btn-wishlist w-100"><i class="fa-regular fa-heart"></i></button>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <button class="btn btn-add-cart" id="addToCartBtn">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="delivery-timeline">
+                    <div class="timeline-item">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <div><strong>Order placed</strong><br>Dec 19</div>
+                    </div>
+                    <div class="timeline-item">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <div><strong>Order Ready</strong><br>Dec 19 - Dec 21</div>
+                    </div>
+                    <div class="timeline-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div><strong>Delivered</strong><br>Dec 22 - Dec 23</div>
+                    </div>
+                </div>
+
+                <div class="small mb-4">
+                    <div class="mb-1"><i class="fa-solid fa-truck me-2"></i> Free Shipping On Prepaid & COD*</div>
+                    <div><i class="fa-solid fa-globe me-2"></i> Free worldwide shipping</div>
+                </div>
+
+                <div class="accordion" id="productAccordion">
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Specifications
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#productAccordion">
+                            <div class="accordion-body">
+                                <div class="spec-grid">
+                                    <div class="spec-item">
+                                        <label>Fabric</label>
+                                        <span>Muslin</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <label>Pattern</label>
+                                        <span>Angrakha</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <label>Color</label>
+                                        <span>Red</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <label>Technique</label>
+                                        <span>Printed</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Description
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#productAccordion">
+                            <div class="accordion-body">
+                                This beautiful Red Angrakha Suit Set features a vibrant floral print, perfect for festive occasions. Made from lightweight muslin fabric.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Shipping Information
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#productAccordion">
+                            <div class="accordion-body">
+                                Dispatched within 48 hours. Delivery usually takes 3-7 business days depending on the location.
+                            </div>
+                        </div>
+                    </div>
+
+                </div> </div>
+        </div>
+    </div>
+
+
+    <section class="Woman py-5">
+   <div class="container">
+
+    <h3 class="fw-bold mb-4">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle-fill" viewBox="0 0 16 16">
+        <circle cx="8" cy="8" r="8"/>
+      </svg>
+        DRESSES
+    </h3>
+    
+        <div class="row">
+
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card small-product shadow-sm p-2 h-100">
+                  
+              <img src="asset/woman/dress3.png" class="img-fluid rounded" alt="">
+              <div class="mt-2">
+                <h6>Black Women Coat Dress</h6>
+                <div class="text-warning small">★★★★★ (2,548)</div>
+                <h6 class="text-danger fw-bold">$129.00
+                  <span class="text-muted text-decoration-line-through">$189.98</span>
+                </h6>
+                <a href="">
+                <button class="btn btn-primary">view details</button>
+                </a>
+                <small class="text-muted">2975 Sold · Free Shipping</small>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card small-product shadow-sm p-2 h-100">
+              <img src="asset/woman/dress2.png" class="img-fluid rounded" alt="">
+              <div class="mt-2">
+                <h6>Red Angrakha Suit Set</h6>
+                <div class="text-warning small">★★★★★ (1,502)</div>
+                <h6 class="text-danger fw-bold">₹ 2,599.00
+                  <span class="text-muted text-decoration-line-through">₹ 8,999.00</span>
+                </h6>
+                <a href="shop.html">
+                  <button class="btn btn-primary">view details</button>
+                  </a>
+                <small class="text-muted">890 Sold · Free Shipping</small>
+              </div>
+            </div>
+          </div>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                   <div class="card small-product shadow-sm p-2 h-100">
+              <img src="asset/woman/dress1.png" class="img-fluid rounded" alt="">
+              <div class="mt-2">
+                <h6>Floral Print Cotton Dress</h6>
+                <div class="text-warning small">★★★★☆ (890)</div>
+                <h6 class="text-danger fw-bold">$85.50
+                  <span class="text-muted text-decoration-line-through">$100.00</span>
+                </h6>
+                <button class="btn btn-primary">view details</button>
+                <small class="text-muted">1200 Sold · Free Shipping</small>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // --- State Variables ---
+    let cartItemCount = 0;
+    let cartTotalPrice = 0.00;
+    let selectedSize = 'M'; // Default size set to M based on the active class in HTML
+
+    // --- DOM Elements ---
+    const addToCartBtn = document.getElementById('addToCartBtn');
+    const cartCountElement = document.getElementById('cartCount');
+    const cartTotalElement = document.getElementById('cartTotal');
+    const productPriceElement = document.getElementById('productPrice');
+    const sizeButtons = document.querySelectorAll('#sizeSelector .size-btn');
+
+    // Get the numeric price of the current product
+    const currentProductPrice = parseFloat(productPriceElement.dataset.price);
+
+    // --- Functions ---
+
+    /**
+     * Updates the cart summary in the navbar.
+     */
+    function updateCartDisplay() {
+        cartCountElement.textContent = cartItemCount;
+        
+        // Format the total price to INR currency
+        const formattedTotal = new Intl.NumberFormat('en-IN', {
+            style: 'currency',
+            currency: 'INR',
+            minimumFractionDigits: 2
+        }).format(cartTotalPrice);
+
+        cartTotalElement.textContent = formattedTotal;
+    }
+    
+    /**
+     * Handles the click event for size selection buttons.
+     */
+    function handleSizeSelection(event) {
+        const clickedButton = event.currentTarget;
+        
+        // 1. Deselect all buttons
+        sizeButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // 2. Select the clicked button
+        clickedButton.classList.add('active');
+        
+        // 3. Update the global selectedSize variable
+        selectedSize = clickedButton.dataset.size;
+        
+        // Ensure Add to Cart button is enabled if a valid size is selected
+        addToCartBtn.disabled = false;
+        addToCartBtn.textContent = 'Add to Cart';
+
+        console.log('Selected Size:', selectedSize);
+    }
+
+
+    /**
+     * Handles the click event for the Add to Cart button.
+     */
+    function handleAddToCartClick() {
+        if (!selectedSize) {
+            alert('Please select a size before adding to cart.');
+            return;
+        }
+
+        // 1. Update State
+        cartItemCount++;
+        cartTotalPrice += currentProductPrice;
+
+        // 2. Update Display
+        updateCartDisplay();
+        
+        // 3. Provide visual feedback
+        addToCartBtn.textContent = `1 Item (${selectedSize}) Added!`; 
+        
+        // Temporarily disable the button to prevent multiple rapid clicks
+        addToCartBtn.disabled = true; 
+
+        setTimeout(() => {
+            addToCartBtn.textContent = 'Add to Cart';
+            addToCartBtn.disabled = false;
+        }, 1500);
+
+        console.log(`Product added: Size ${selectedSize}, Price ${currentProductPrice}`);
+    }
+
+    // --- Event Listeners ---
+
+    // 1. Attach listener to the Add to Cart button
+    if (addToCartBtn) {
+        addToCartBtn.addEventListener('click', handleAddToCartClick);
+    }
+    
+    // 2. Attach listeners to all size buttons
+    sizeButtons.forEach(button => {
+        // Only attach listener if the button is not disabled
+        if (!button.classList.contains('disabled-size')) {
+            button.addEventListener('click', handleSizeSelection);
+        } else {
+             // If XXL is disabled by default, ensure the default size logic still works
+            if(button.classList.contains('active')) {
+                button.classList.remove('active');
+            }
+        }
+    });
+
+    // 3. Initialization: Check for a default active size on load
+    const initialActiveSize = document.querySelector('#sizeSelector .size-btn.active');
+    if (initialActiveSize) {
+        selectedSize = initialActiveSize.dataset.size;
+    } else {
+        // If no default size is active, disable the Add to Cart button until one is chosen.
+        selectedSize = null;
+        addToCartBtn.disabled = true;
+        addToCartBtn.textContent = 'Select a Size';
+    }
+
+
+</script>
+</body>
+</html>
